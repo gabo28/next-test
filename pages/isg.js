@@ -21,10 +21,9 @@ const query = `query {
   }
 }`;
 
+export default function Isg(props) {
 
-export default function Ssg({data}) {
-
-console.log(data);
+console.log(props.data);
 
   return (
     <div >
@@ -33,7 +32,7 @@ console.log(data);
         <div className="swiper-banner">
           <div className="swiper-wrapper">
             <div className="swiper-slide"><img loading="lazy"
-              src={data?.imageCollection?.items[0].url}
+              src={props.data?.imageCollection?.items[0].url}
               alt="imagen 1" /></div>
             <div className="swiper-slide"><img loading="lazy"
               src="https://www.bancolombia.com/wcm/connect/www.bancolombia.com-26918/4f6f0acd-eccc-4f1f-932a-a42b31dc3034/carrusel-banner-2x-2-optimizada.png?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_K9HC1202P864E0Q30449MS3000-4f6f0acd-eccc-4f1f-932a-a42b31dc3034-nX11-ZB"
@@ -45,16 +44,16 @@ console.log(data);
           <div className="swiper-pagination-banner"></div>
         </div>
         <div className="informacion-banner">
-          <h1>{data?.titlee}</h1>
-          <p>{data?.description}</p>
+          <h1>{props.data?.titlee}</h1>
+          <p>{props.data?.description}</p>
           <div className="aviso-banner">
-            <em className="bc-icon" aria-hidden="true" aria-label="prueba" role="img">{data?.icon}</em>
-            <p>{data?.caption}</p>
+            <em className="bc-icon" aria-hidden="true" aria-label="prueba" role="img">{props.data?.icon}</em>
+            <p>{props.data?.caption}</p>
           </div>
 
           <div id="btn-open-modal-container" className="">
             <button id="btn-open-modal" className="bc-button-primary bc-button" data-toggle="modal" data-target="#modalApp">
-              {data?.buttonText}
+              {props.data?.buttonText}
             </button>
           </div>
           <div className="alerta-banner">
@@ -75,7 +74,7 @@ console.log(data);
 }
 
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
     method: 'POST',
     headers: {
@@ -90,5 +89,6 @@ export async function getStaticProps() {
   const dapros = data.data.banner
   return {
     props: { data:dapros },
+    revalidate: 20,
   }
 }
