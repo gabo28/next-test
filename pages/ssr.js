@@ -75,7 +75,7 @@ console.log(data);
 }
 
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
     method: 'POST',
     headers: {
