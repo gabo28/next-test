@@ -37,7 +37,7 @@ const [ state, setState] = useState(null)
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer ftt5X_tlh9PNCWGLkFUq5ABILm2dpNnzZAmEi0EqwAk"
+        "Authorization": `${process.env.NEXT_PUBLIC_AUTHORIZATION}`
       },
       body: JSON.stringify({
         query
