@@ -16,7 +16,7 @@ export default function HomeList({items}) {
                         <Link href={`/list/${item.sys.id}`} key={item.sys.id}> 
                            <a>
                            <li className="list-group-item d-flex justify-content-between align-items-center" >
-                                {item?.titlee}
+                                {item?.title}
                                 <span className="badge badge-primary badge-pill">{item?.imageCollection.total}</span>
                             </li>
                            </a>
@@ -35,7 +35,7 @@ export default function HomeList({items}) {
 export async function getStaticProps() {
 
     const query = `query {
-        # add your query
+  
         bannerCollection {
           total
           items {
@@ -43,7 +43,7 @@ export async function getStaticProps() {
               id
               publishedAt
             }
-            titlee
+            title
             description
             buttonText
             imageCollection{

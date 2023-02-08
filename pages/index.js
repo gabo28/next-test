@@ -12,7 +12,7 @@ export default function Home() {
 
   const query = `query {
       banner(id: "6Xclg2Kaav0rMDbcfAgl68") {
-        titlee
+        title
         description
         caption
         buttonText
@@ -62,7 +62,7 @@ export default function Home() {
           <div className="swiper-pagination-banner"></div>
         </div>
         <div className="informacion-banner">
-          <h1>{state?.titlee}</h1>
+          <h1>{state?.title}</h1>
           <p>{state?.description}</p>
           <div className="aviso-banner">
             <em className="bc-icon" aria-hidden="true" aria-label="prueba" role="img">{state?.icon}</em>

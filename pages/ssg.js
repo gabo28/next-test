@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const query = `query {
   banner(id: "6Xclg2Kaav0rMDbcfAgl68") {
-    titlee
+    title
     description
     caption
     buttonText
@@ -45,7 +45,7 @@ console.log(props.data);
           <div className="swiper-pagination-banner"></div>
         </div>
         <div className="informacion-banner">
-          <h1>{props.data?.titlee}</h1>
+          <h1>{props.data?.title}</h1>
           <p>{props.data?.description}</p>
           <div className="aviso-banner">
             <em className="bc-icon" aria-hidden="true" aria-label="prueba" role="img">{props.data?.icon}</em>

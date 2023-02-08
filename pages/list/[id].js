@@ -6,14 +6,14 @@ import Link from 'next/link';
 
 // Import Swiper styles
 import 'swiper/css';
-
+// <img className="card-img-top" src={data?.imageCollection?.items[0].url} alt="Card image cap" />
 export default function HomeId({ data }) {
     return (
         <div >
             <div className="card" style={{width:"16rem"}}>
-                <img className="card-img-top" src={data?.imageCollection?.items[0].url} alt="Card image cap" />
+                
                 <div className="card-body">
-                    <p className="card-text">{data?.titlee}</p>
+                    <p className="card-text">{data?.title}</p>
                 </div>
             </div>
             <GeneralFooter />
@@ -32,7 +32,7 @@ export async function getStaticPaths() {
               id
               publishedAt
             }
-            titlee
+            title
             description
             buttonText
             imageCollection{
@@ -75,7 +75,7 @@ export async function getStaticProps({ params }) {
    
     const query = `query {
         banner(id: "${params.id}") {
-          titlee
+          title
           description
           caption
           buttonText
